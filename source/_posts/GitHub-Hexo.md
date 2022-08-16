@@ -59,7 +59,7 @@ hexo new page "頁面名稱" //可在source資料夾找到該頁面名稱之資�
 ```
 ### 將檔案發布至GitHub
 檔案發布之前需在Github建立Repository **以下簡稱repo
-在Project資料夾，輸入以下指令
+在Project資料夾，輸入以下指令(cmd)
 ```
 npm install hexo-deployer-git --save  //安裝部屬所需套件
 ```
