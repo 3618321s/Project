@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search>
+  <entry>
+    <title>GitHub + Hexo</title>
+    <url>/Project/2022/08/GitHub-Hexo/</url>
+    <content><![CDATA[<h2 id="環境準備"><a href="#環境準備" class="headerlink" title="環境準備"></a>環境準備</h2><span id="more"></span>
+<h3 id="安裝工具"><a href="#安裝工具" class="headerlink" title="安裝工具"></a>安裝工具</h3><ul>
+<li><a href="https://nodejs.org/zh-tw/download/">Node.js</a>：提供npm來安裝所需的套件(下載安裝檔)</li>
+<li><a href="https://git-scm.com/downloads">Git</a>：將檔案發布到 GitHub Page(下載安裝檔)</li>
+</ul>
+<h3 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a><a href="https://hexo.io/zh-tw/docs/">Hexo</a></h3><p>開啟cmd命令提示字元，輸入以下安裝指令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br></pre></td></tr></table></figure>
+
+<p>安裝後，可輸入以下指令查看Hexo版本，確認是否安裝成功</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo -v</span><br></pre></td></tr></table></figure>
+
+<p>在要新增資料夾的路徑上輸入CMD，輸入以下指令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo init 資料夾名稱</span><br><span class="line">hexo init Project //假設資料夾名稱為Project</span><br></pre></td></tr></table></figure>
+
+<p>進入Project資料夾</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">cd Project </span><br></pre></td></tr></table></figure>
+
+<p>輸入以下指令，安裝所需的npm套件</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install //安裝完成後可在Project看見資料</span><br></pre></td></tr></table></figure>
+
+<h2 id="常用指令"><a href="#常用指令" class="headerlink" title="常用指令"></a>常用指令</h2><h3 id="新增文章"><a href="#新增文章" class="headerlink" title="新增文章"></a>新增文章</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new &quot;文章標題&quot; //若含空白須加上雙引號&quot;</span><br></pre></td></tr></table></figure>
+<h3 id="建立頁面"><a href="#建立頁面" class="headerlink" title="建立頁面"></a>建立頁面</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page &quot;頁面名稱&quot; //可在source資料夾找到該頁面名稱之資料夾 編輯index.md</span><br></pre></td></tr></table></figure>
+<h3 id="將檔案發布至GitHub"><a href="#將檔案發布至GitHub" class="headerlink" title="將檔案發布至GitHub"></a>將檔案發布至GitHub</h3><p>檔案發布之前需在Github建立Repository **以下簡稱repo<br>在Project資料夾，輸入以下指令(cmd)</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-deployer-git --save  //安裝部屬所需套件</span><br></pre></td></tr></table></figure>
+
+<p>修改Project&#x2F;_config.yml檔案的Deployment設定</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: https://github.com/username/repo.git</span><br><span class="line">  branch: master / gh-pages</span><br></pre></td></tr></table></figure>
+<p>修改後，輸入以下指令</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo deploy //部屬指令</span><br></pre></td></tr></table></figure>
+
+<h2 id="總結"><a href="#總結" class="headerlink" title="總結"></a>總結</h2><p>基本上每次修改後輸入指令為</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo cl //hexo clean 清除靜態檔案與快取</span><br><span class="line">hexo g  //hexo generate 產生靜態檔案</span><br><span class="line">hexo d  //hexo deploy 部屬至GitHub</span><br></pre></td></tr></table></figure>
+<p>第二步驟和第三步驟可直接合併使用</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo g -d</span><br></pre></td></tr></table></figure>
+<p>發布之前可以輸入以下指令，在自己電腦上預覽結果</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo s  //hexo server 啟動伺服器 本地瀏覽使用</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>GitHub</category>
+      </categories>
+      <tags>
+        <tag>GitHub</tag>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>LINE@ Bot</title>
+    <url>/Project/2022/09/LINE-Bot/</url>
+    <content><![CDATA[<p>Line官方帳號搭配google apps script + google sheet</p>
+<p>官方帳號設定知識點，<br>設定好友點擊每次顯示不同知識點。</p>
+<span id="more"></span>
+
+<h3 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h3><h4 id="建立LINE官方帳號"><a href="#建立LINE官方帳號" class="headerlink" title="建立LINE官方帳號"></a>建立LINE官方帳號</h4><p>不敘述。<br>須設定開啟之功能</p>
+<ul>
+<li>開啟Messaging Api功能</li>
+<li>開啟聊天機器人</li>
+<li>開啟Webhook</li>
+</ul>
+<h4 id="google-sheet建立"><a href="#google-sheet建立" class="headerlink" title="google sheet建立"></a>google sheet建立</h4><p>使用google試算表，建立知識點清單。<br>第一欄為索引，第二欄為知識點。<br><img src="googlesheet.png" width= "65%"><br><img src="https://github.com/3618321s/Project/raw/gh-pages/2022/09/LINE-Bot/googlesheet.png" alt="img"><br>接著共用此工作表，有此連結者皆可以編輯此資料表。<br><a href="https://docs.google.com/spreadsheets/d/%7BSheetID%7D/edit?usp=sharing">https://docs.google.com/spreadsheets/d/{SheetID}/edit?usp=sharing</a><br>{SheetID}為此工作表ID</p>
+<h3 id="進入主題"><a href="#進入主題" class="headerlink" title="進入主題"></a>進入主題</h3><h4 id="使用google-app-script"><a href="#使用google-app-script" class="headerlink" title="使用google app script"></a>使用google app script</h4><p>程式碼如下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">function doPost(e) &#123;</span><br><span class="line">  var CHANNEL_ACCESS_TOKEN = &#x27;LINE TOKEN&#x27;; //取得LINE CHANNEL_ACCESS_TOKEN</span><br><span class="line">  var msg= JSON.parse(e.postData.contents);</span><br><span class="line">  //console.log(msg);</span><br><span class="line">  </span><br><span class="line">  // 取出 replayToken 和發送的訊息文字</span><br><span class="line">  var replyToken = msg.events[0].replyToken;</span><br><span class="line">  var userMessage = msg.events[0].message.text;</span><br><span class="line"></span><br><span class="line">  if (typeof replyToken === &#x27;undefined&#x27;) &#123;</span><br><span class="line">    return;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  if(userMessage == &#x27;小知識&#x27;)&#123; //判斷使用者輸入文字若為小知識</span><br><span class="line">    pushMsg(CHANNEL_ACCESS_TOKEN,replyToken,userMessage);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">function pushMsg(channel_token,reply_token,usermessage)&#123;</span><br><span class="line">//取得亂數</span><br><span class="line">  min = 1;</span><br><span class="line">  max = 50;</span><br><span class="line">  num = Math.floor(Math.random() * (max - min + 1)) + min; //取得亂數</span><br><span class="line">  //console.log(num);</span><br><span class="line"></span><br><span class="line">//取得工作表資料</span><br><span class="line">  var id = &#x27;工作表ID&#x27;;  //SheetID</span><br><span class="line">  var name = &#x27;db&#x27;; //工作表名稱</span><br><span class="line">  var spreadsheet = SpreadsheetApp.openById(id);  </span><br><span class="line">  var sheetName = spreadsheet.getSheetByName(name);  </span><br><span class="line">  var data = sheetName.getDataRange().getValues(); // 取得的資料</span><br><span class="line"></span><br><span class="line">  var dataExport = &#123;&#125;;  </span><br><span class="line">  var index;</span><br><span class="line">  index = data[num][0]; //找到亂數索引的資料</span><br><span class="line">  dataExport[index] = &#123;</span><br><span class="line">    text: data[num][1]  //帶出該索引的資料  </span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  var dataExportFormat = JSON.stringify(dataExport);</span><br><span class="line">  </span><br><span class="line">  //console.log(dataExportFormat);</span><br><span class="line"></span><br><span class="line">//推送回覆訊息</span><br><span class="line">  var url = &#x27;https://api.line.me/v2/bot/message/reply&#x27;;  </span><br><span class="line">  UrlFetchApp.fetch(url, &#123;</span><br><span class="line">      &#x27;headers&#x27;: &#123;</span><br><span class="line">      &#x27;Content-Type&#x27;: &#x27;application/json; charset=UTF-8&#x27;,</span><br><span class="line">      &#x27;Authorization&#x27;: &#x27;Bearer &#x27; + channel_token,</span><br><span class="line">    &#125;,</span><br><span class="line">    &#x27;method&#x27;: &#x27;post&#x27;,</span><br><span class="line">    &#x27;payload&#x27;: JSON.stringify(&#123;</span><br><span class="line">      &#x27;replyToken&#x27;: reply_token,</span><br><span class="line">      &#x27;messages&#x27;: [&#123;</span><br><span class="line">        &#x27;type&#x27;: &#x27;text&#x27;,</span><br><span class="line">        &#x27;text&#x27;: data[num][1]</span><br><span class="line">      &#125;],</span><br><span class="line">    &#125;),</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>點擊<code>發布</code>–&gt;<code>部屬為網頁應用程式</code>–&gt;版本控制 每次都用新增<br>最後複製連結 貼到LINE Messaging api 儲存</p>
+]]></content>
+      <tags>
+        <tag>LINE</tag>
+        <tag>google apps script</tag>
+        <tag>google sheet</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo新增分類或標籤等其他自訂頁面</title>
+    <url>/Project/2022/08/page/</url>
+    <content><![CDATA[<h3 id="新增分類、標籤頁面"><a href="#新增分類、標籤頁面" class="headerlink" title="新增分類、標籤頁面"></a>新增分類、標籤頁面</h3><span id="more"></span>
+<p>先在主題裡配置好分類、標籤<br>開啟 <code>/Project/theme/next/_config.yml</code> 檔案<br>找到menu</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: / || fa fa-home</span><br><span class="line">  #about: /about/ || fa fa-user</span><br><span class="line">  tags: /tags/ || fa fa-tags  //刪除前面#</span><br><span class="line">  categories: /categories/ || fa fa-th //刪除前面#</span><br><span class="line">  archives: /archives/ || fa fa-archive</span><br><span class="line">  #schedule: /schedule/ || fa fa-calendar</span><br><span class="line">  #sitemap: /sitemap.xml || fa fa-sitemap</span><br><span class="line">  #commonweal: /404/ || fa fa-heartbeat</span><br></pre></td></tr></table></figure>
+<p>再來建立分類、標籤的目錄檔案<br>Project –&gt; cmd</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page categories</span><br><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure>
+<p>以分類做說明<br>至 <code>/Project/source/categories/</code> 找到 <code>index.md</code> 檔案</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: categories</span><br><span class="line">date: 2022-08-15 14:20:06</span><br><span class="line">type: &quot;categories&quot;  &lt;&lt;--新增這段</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>tags也是如此操作方式</p>
+<h3 id="新增文章如何使用分類與標籤"><a href="#新增文章如何使用分類與標籤" class="headerlink" title="新增文章如何使用分類與標籤"></a>新增文章如何使用分類與標籤</h3><p>在文章上方區域新增categories與tags</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">----------------</span><br><span class="line">title: GitHub + Hexo</span><br><span class="line">author: 3618321s</span><br><span class="line">date: 2022-08-10 16:56:38</span><br><span class="line">tags: </span><br><span class="line">- GitHub &lt;&lt;--</span><br><span class="line">- Hexo  &lt;&lt;--</span><br><span class="line">----------------</span><br></pre></td></tr></table></figure>
+<p>備註：分類一次只能設定一個，設定兩個則第二個為第一個的子項目</p>
+<h3 id="自訂頁面"><a href="#自訂頁面" class="headerlink" title="自訂頁面"></a>自訂頁面</h3><p>在建立網站時，會參考許多資料，一併彙整一起<br>就以連結頁面為例，新增頁面為links</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo new page links</span><br></pre></td></tr></table></figure>
+<p>至 <code>/Project/source/links/</code> 找到 <code>index.md</code> 檔案<br>直接將連結資料貼到此檔案即可<br>另外，記得到 <code>/Project/theme/next/_config.yml</code> 檔案<br>找到menu，加上連結的icon</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  &lt;&lt;-省略-&gt;&gt;</span><br><span class="line">  連結: /links/ || fa fa-link  &lt;&lt;--加入此行</span><br><span class="line">  &lt;&lt;-省略-&gt;&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="套件"><a href="#套件" class="headerlink" title="套件"></a>套件</h3><h4 id="NexT的搜尋套件"><a href="#NexT的搜尋套件" class="headerlink" title="NexT的搜尋套件"></a>NexT的搜尋套件</h4><p>Project –&gt; cmd</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb --save</span><br></pre></td></tr></table></figure>
+<p><code>/Project/theme/next/_config.yml</code> 檔案找到 <code>local_search</code><br>只需要將 <code>enable</code> 改成 <code>true</code> 就可以搜尋站內網站的功能</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Local Search</span><br><span class="line"># Dependencies: https://github.com/theme-next/hexo-generator-searchdb</span><br><span class="line">local_search:</span><br><span class="line">  enable: true   &lt;&lt;--修改成true</span><br><span class="line">  # If auto, trigger search by changing input.</span><br><span class="line">  # If manual, trigger search by pressing enter key or search button.</span><br><span class="line">  trigger: auto</span><br><span class="line">  # Show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: 1</span><br><span class="line">  # Unescape html strings to the readable one.</span><br><span class="line">  unescape: false</span><br><span class="line">  # Preload the search data when the page loads.</span><br><span class="line">  preload: false</span><br></pre></td></tr></table></figure>
+
+<h4 id="NexT的書籤套件-Bookmark"><a href="#NexT的書籤套件-Bookmark" class="headerlink" title="NexT的書籤套件 - Bookmark"></a>NexT的書籤套件 - Bookmark</h4><p>它會紀錄你在哪一個頁跳出，只需要一個點擊，你就可以跳回到你上一次離開的畫面<br>Project&#x2F;theme&#x2F;next –&gt; cmd</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/theme-next/theme-next-bookmark.git source/lib/bookmark</span><br></pre></td></tr></table></figure>
+<p>需發布至GitHub才可以使用此功能，在本地預覽沒有效果。</p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo Theme NexT</title>
+    <url>/Project/2022/08/post-2022-08-10/</url>
+    <content><![CDATA[<h3 id="Hexo-網站配置設定"><a href="#Hexo-網站配置設定" class="headerlink" title="Hexo 網站配置設定"></a>Hexo 網站配置設定</h3><span id="more"></span>
+<p>使用資料夾底下的 <code>_config.yml</code> 檔案進行設定</p>
+<h4 id="設定說明"><a href="#設定說明" class="headerlink" title="設定說明"></a>設定說明</h4><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Site</span><br><span class="line">title: 點點滴滴  //網站標題</span><br><span class="line">subtitle: &#x27;&#x27;    //網站副標題</span><br><span class="line">description: &#x27;&#x27; //網站描述</span><br><span class="line">keywords:       //網站的關鍵詞，支援多個關鍵詞</span><br><span class="line">author: 3618321s//作者</span><br><span class="line">language: zh-TW //網站使用的語言</span><br><span class="line">timezone: &#x27;&#x27;    //網站時區</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># URL</span><br><span class="line">url: http://3618321s.github.io/    //Github網址</span><br><span class="line">root: /                            //網站的根目錄</span><br><span class="line">permalink: :year/:month/:title/    //文章永久連結的格式</span><br><span class="line">permalink_defaults:</span><br><span class="line">pretty_urls:</span><br><span class="line">  trailing_index: true </span><br><span class="line">  trailing_html: true </span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># Extensions</span><br><span class="line">## Plugins: https://hexo.io/plugins/</span><br><span class="line">## Themes: https://hexo.io/themes/</span><br><span class="line">theme: next     //套用主題  ***</span><br></pre></td></tr></table></figure>
+<p>以上為基本上僅目前有使用到部分</p>
+<h3 id="套用NexT主題"><a href="#套用NexT主題" class="headerlink" title="套用NexT主題"></a>套用NexT主題</h3><p>Project –&gt; cmd<br>輸入以下指令，下載NexT主題到 <code>Project/themes</code> 主題資料夾底下</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git clone https://github.com/theme-next/hexo-theme-next themes/next </span><br></pre></td></tr></table></figure>
+<p>修改<code>_config.yml</code>裡面的 <code>theme</code> 為 <code>next</code> ***<br>啟動伺服器就可以看到新主題</p>
+<h3 id="參考網站"><a href="#參考網站" class="headerlink" title="參考網站"></a>參考網站</h3><p><a href="https://hexo.io/zh-tw/docs/configuration.html">Hexo配置</a><br><a href="https://kiwi0093.github.io/wiki/wiki/Network/Hexo/3-Hexo-setting/">Hexo基本設定與使用</a></p>
+]]></content>
+      <categories>
+        <category>Hexo</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Theme</tag>
+        <tag>Next</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>jQuery Datepicker</title>
+    <url>/Project/2022/08/jQueryDatepicker/</url>
+    <content><![CDATA[<p>使用Datepicker 套件來顯示日期選擇器</p>
+<span id="more"></span>
+<p>寫網頁有時候就會用到日期，<br>為了不要每次寫的時候都要花費一些時間尋找，<br>紀錄起來方便之後使用，靠小腦袋基本上靠不住&gt;&#x2F;&#x2F;&#x2F;&lt;</p>
+<h3 id="html"><a href="#html" class="headerlink" title="html"></a>html</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;p&gt;日期: &lt;input type=&quot;text&quot; id=&quot;datepicker&quot;&gt;&lt;/p&gt; </span><br></pre></td></tr></table></figure>
+<h3 id="jQuery-單一日期"><a href="#jQuery-單一日期" class="headerlink" title="jQuery(單一日期)"></a>jQuery(單一日期)</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!--jQuery datepicker 開始--&gt;</span><br><span class="line">  &lt;link rel=&quot;stylesheet&quot; href=&quot;https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css&quot;&gt;</span><br><span class="line">  &lt;link rel=&quot;stylesheet&quot; href=&quot;http://jqueryui.com/resources/demos/style.css&quot;&gt;</span><br><span class="line">  &lt;script src=&quot;https://code.jquery.com/jquery-1.12.4.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script src=&quot;https://code.jquery.com/ui/1.12.1/jquery-ui.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script src=&quot;http://tony1966.xyz/test/jquery/jquery.ui.datepicker-zh-TW.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">  &lt;script&gt;</span><br><span class="line">    $(function () &#123;</span><br><span class="line">      $(&quot;#datepicker&quot;).datepicker(&#123;</span><br><span class="line">        dateFormat: &quot;yy-mm-dd&quot;,</span><br><span class="line">        defaultDate: &quot;+0w&quot;,</span><br><span class="line">        changeMonth: true,</span><br><span class="line">        numberOfMonths: 1,</span><br><span class="line">        changeYear: true,</span><br><span class="line">        //showOn: &quot;button&quot;,</span><br><span class="line">        //minDate: &quot;-0d&quot; //不可選取過去日期</span><br><span class="line">      &#125;);</span><br><span class="line">    &#125;);</span><br><span class="line">  &lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="jQuery-日期範圍"><a href="#jQuery-日期範圍" class="headerlink" title="jQuery(日期範圍)"></a>jQuery(日期範圍)</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">&lt;!--jQuery datepicker 開始--&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css&quot;&gt;</span><br><span class="line">&lt;link rel=&quot;stylesheet&quot; href=&quot;http://jqueryui.com/resources/demos/style.css&quot;&gt;</span><br><span class="line">&lt;script src=&quot;https://code.jquery.com/jquery-1.12.4.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;https://code.jquery.com/ui/1.12.1/jquery-ui.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script src=&quot;http://tony1966.xyz/test/jquery/jquery.ui.datepicker-zh-TW.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $(function () &#123;</span><br><span class="line">    var dateFormat = &quot;yymmdd&quot;,</span><br><span class="line">    from = $(&quot;#ContentPlaceHolder1_datepicker1&quot;).datepicker(&#123;</span><br><span class="line">    dateFormat: &quot;yymmdd&quot;,</span><br><span class="line">    defaultDate: &quot;+0w&quot;,</span><br><span class="line">    changeMonth: true,</span><br><span class="line">    numberOfMonths: 1,</span><br><span class="line">    changeYear: true,</span><br><span class="line">    showOn: &quot;button&quot;,</span><br><span class="line">    buttonImage: &quot;/images/date.png&quot;,</span><br><span class="line">    buttonImageOnly: true,</span><br><span class="line">    buttonText: &quot;Select date&quot;</span><br><span class="line">&#125;)</span><br><span class="line">    .on(&quot;change&quot;, function () &#123;</span><br><span class="line">        to.datepicker(&quot;option&quot;, &quot;minDate&quot;, getDate(this));</span><br><span class="line">    &#125;),</span><br><span class="line">    to = $(&quot;#ContentPlaceHolder1_datepicker2&quot;).datepicker(&#123;</span><br><span class="line">    dateFormat: &quot;yymmdd&quot;,</span><br><span class="line">    defaultDate: &quot;+0w&quot;,</span><br><span class="line">    changeMonth: true,</span><br><span class="line">    numberOfMonths: 1,</span><br><span class="line">    changeYear: true,</span><br><span class="line">    showOn: &quot;button&quot;,</span><br><span class="line">    buttonImage: &quot;/images/date.png&quot;,</span><br><span class="line">    buttonImageOnly: true,</span><br><span class="line">    buttonText: &quot;Select date&quot;</span><br><span class="line">&#125;)</span><br><span class="line">    .on(&quot;change&quot;, function () &#123;</span><br><span class="line">        from.datepicker(&quot;option&quot;, &quot;maxDate&quot;, getDate(this));</span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">    function getDate(element) &#123;</span><br><span class="line">    var date;</span><br><span class="line">    try &#123;</span><br><span class="line">        date = $.datepicker.parseDate(dateFormat, element.value);</span><br><span class="line">    &#125; catch (error) &#123;</span><br><span class="line">        date = null;</span><br><span class="line">    &#125;</span><br><span class="line">    return date;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;!--jQuery datepicker 結束--&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h3><p><a href="https://jqueryui.com/datepicker/">jQuery Datepicker</a></p>
+]]></content>
+      <categories>
+        <category>jQuery</category>
+      </categories>
+      <tags>
+        <tag>jQuery</tag>
+        <tag>Datepicker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>指令紀錄</title>
+    <url>/Project/2022/09/20220906/</url>
+    <content><![CDATA[<p>紀錄每次基本上會使用到的指令<br>供腦容量不足的我可勾起回憶</p>
+<span id="more"></span>
+
+<h3 id="發布"><a href="#發布" class="headerlink" title="發布"></a>發布</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">hexo cl</span><br><span class="line"></span><br><span class="line">hexo g</span><br><span class="line"></span><br><span class="line">hexo d //發布</span><br><span class="line"></span><br><span class="line">hexo s //本機預覽</span><br></pre></td></tr></table></figure>
+
+<h3 id="Project上傳至github"><a href="#Project上傳至github" class="headerlink" title="Project上傳至github"></a>Project上傳至github</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">git  branch</span><br><span class="line"></span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line">git commit -m &quot;內容&quot;</span><br><span class="line"></span><br><span class="line">git branch -M main</span><br><span class="line"></span><br><span class="line">git push origin main --force</span><br></pre></td></tr></table></figure>
+
+<h3 id="下載Project至別台電腦"><a href="#下載Project至別台電腦" class="headerlink" title="下載Project至別台電腦"></a>下載Project至別台電腦</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">npm install hexo-cli -g</span><br><span class="line"></span><br><span class="line">git clone -b main https://github.com/3618321s/Project.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="Next-修改部分"><a href="#Next-修改部分" class="headerlink" title="Next 修改部分"></a>Next 修改部分</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># If not defined, `author` from Hexo `_config.yml` will be used.</span><br><span class="line">copyright: 3618321s  &lt;----&gt; 修改部分</span><br><span class="line"></span><br><span class="line"># Powered by Hexo &amp; NexT</span><br><span class="line">powered: false  &lt;----&gt; 修改部分</span><br><span class="line"></span><br><span class="line"># ---------------------------------------------------------------</span><br><span class="line"># Scheme Settings</span><br><span class="line"># ---------------------------------------------------------------</span><br><span class="line"></span><br><span class="line"># Schemes</span><br><span class="line">#scheme: Muse</span><br><span class="line">scheme: Mist  &lt;----&gt; 使用此方式</span><br><span class="line">#scheme: Pisces</span><br><span class="line">#scheme: Gemini</span><br><span class="line"></span><br><span class="line">tags: /tags/ || fa fa-tags  &lt;-----&gt; 取消註記</span><br><span class="line">categories: /categories/ || fa fa-th  &lt;-----&gt; 取消註記</span><br><span class="line">連結: /links/ || fa fa-link  &lt;-----&gt; 新增頁面</span><br><span class="line"></span><br><span class="line"># Enable / Disable menu icons / item badges.</span><br><span class="line">menu_settings:</span><br><span class="line">  icons: true</span><br><span class="line">  badges: true  &lt;----&gt; 修改部分</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Sidebar Display (only for Muse | Mist), available values:</span><br><span class="line">  #  - post    expand on posts automatically. Default.</span><br><span class="line">  #  - always  expand for all pages automatically.</span><br><span class="line">  #  - hide    expand only when click on the sidebar toggle icon.</span><br><span class="line">  #  - remove  totally remove sidebar including sidebar toggle.</span><br><span class="line">  display: hide  &lt;----&gt; 修改部分</span><br><span class="line"></span><br><span class="line"># Blog rolls</span><br><span class="line">links_settings:</span><br><span class="line">  icon: fa fa-link</span><br><span class="line">  title: Links</span><br><span class="line">  # Available values: block | inline</span><br><span class="line">  layout: inline  &lt;----&gt; 修改部分</span><br><span class="line"></span><br><span class="line"># Post wordcount display settings</span><br><span class="line"># Dependencies: https://github.com/theme-next/hexo-symbols-count-time</span><br><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true # 文章是否顯示字數統計 &lt;----&gt; 修改部分</span><br><span class="line">  separated_meta: true</span><br><span class="line">  item_text_post: true</span><br><span class="line">  item_text_total: false</span><br><span class="line"></span><br><span class="line">codeblock:</span><br><span class="line">  # Code Highlight theme</span><br><span class="line">  # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic</span><br><span class="line">  # See: https://github.com/chriskempson/tomorrow-theme</span><br><span class="line">  highlight_theme: night eighties  &lt;----&gt; 修改部分</span><br><span class="line">  # Add copy button on codeblock</span><br><span class="line">  copy_button:</span><br><span class="line">    enable: true &lt;----&gt; 修改部分</span><br><span class="line">    # Show text copy result.</span><br><span class="line">    show_result: false</span><br><span class="line">    # Available values: default | flat | mac</span><br><span class="line">    style:</span><br><span class="line"></span><br><span class="line">back2top:</span><br><span class="line">  enable: true</span><br><span class="line">  # Back to top in sidebar.</span><br><span class="line">  sidebar: false</span><br><span class="line">  # Scroll percent label in b2t button.</span><br><span class="line">  scrollpercent: true &lt;----&gt; 修改部分</span><br><span class="line"></span><br><span class="line"># Reading progress bar</span><br><span class="line">reading_progress:</span><br><span class="line">  enable: true &lt;----&gt; 修改部分</span><br><span class="line">  # Available values: top | bottom</span><br><span class="line">  position: top</span><br><span class="line">  color: &quot;#37c6c0&quot;</span><br><span class="line">  height: 3px</span><br><span class="line"></span><br><span class="line"># Local Search</span><br><span class="line"># Dependencies: https://github.com/theme-next/hexo-generator-searchdb</span><br><span class="line">local_search:</span><br><span class="line">  enable: true  &lt;----&gt; 修改部分</span><br><span class="line">  # If auto, trigger search by changing input.</span><br><span class="line">  # If manual, trigger search by pressing enter key or search button.</span><br><span class="line">  trigger: auto</span><br><span class="line">  # Show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: 1</span><br><span class="line">  # Unescape html strings to the readable one.</span><br><span class="line">  unescape: false</span><br><span class="line">  # Preload the search data when the page loads.</span><br><span class="line">  preload: false</span><br><span class="line"></span><br><span class="line"># Progress bar in the top during page loading.</span><br><span class="line"># Dependencies: https://github.com/theme-next/theme-next-pace</span><br><span class="line"># For more information: https://github.com/HubSpot/pace</span><br><span class="line">pace:</span><br><span class="line">  enable: true &lt;----&gt; 修改部分</span><br><span class="line">  # Themes list:</span><br><span class="line">  # big-counter | bounce | barber-shop | center-atom | center-circle | center-radar | center-simple</span><br><span class="line">  # corner-indicator | fill-left | flat-top | flash | loading-bar | mac-osx | material | minimal</span><br><span class="line">  theme: pace-theme-loading-bar &lt;----&gt; 修改部分</span><br></pre></td></tr></table></figure>]]></content>
+  </entry>
+</search>
