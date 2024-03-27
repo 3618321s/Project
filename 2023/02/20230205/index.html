@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/Project/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/Project/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/Project/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/Project/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/Project/css/main.css">
+
+
+<link rel="stylesheet" href="/Project/lib/font-awesome/css/all.min.css">
+  <link rel="stylesheet" href="/Project/lib/pace/pace-theme-pace-theme-loading-bar.min.css">
+  <script src="/Project/lib/pace/pace.min.js"></script>
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"3618321s.github.io","root":"/Project/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"hide","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="上一篇 GridView 如何新增、編輯、刪除、換頁 這篇紀錄一些額外使用方式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="GridView 額外使用方式">
+<meta property="og:url" content="http://3618321s.github.io/Project/2023/02/20230205/index.html">
+<meta property="og:site_name" content="點點滴滴">
+<meta property="og:description" content="上一篇 GridView 如何新增、編輯、刪除、換頁 這篇紀錄一些額外使用方式">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://github.com/3618321s/blog/raw/gh-pages/images/Project/GridView%E6%8C%89%E9%88%95%E4%BA%8B%E4%BB%B6.jpg">
+<meta property="og:image" content="https://github.com/3618321s/blog/raw/gh-pages/images/Project/GridView%E5%90%88%E4%BD%B5%E6%AC%84%E4%BD%8D%E4%BA%8B%E4%BB%B6.jpg">
+<meta property="og:image" content="https://github.com/3618321s/blog/raw/gh-pages/images/Project/GridView%E5%90%88%E4%BD%B5%E4%BA%8B%E4%BB%B6.jpg">
+<meta property="article:published_time" content="2023-02-09T06:02:13.000Z">
+<meta property="article:modified_time" content="2024-03-27T14:01:46.605Z">
+<meta property="article:author" content="想抓住記憶的金魚">
+<meta property="article:tag" content="GridView">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://github.com/3618321s/blog/raw/gh-pages/images/Project/GridView%E6%8C%89%E9%88%95%E4%BA%8B%E4%BB%B6.jpg">
+
+<link rel="canonical" href="http://3618321s.github.io/Project/2023/02/20230205/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>GridView 額外使用方式 | 點點滴滴</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/Project/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">點點滴滴</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">勤學如春起之苗，不見其增，日有所長。</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/Project/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/Project/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">11</span></a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/Project/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">5</span></a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/Project/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔<span class="badge">15</span></a>
+
+  </li>
+        <li class="menu-item menu-item-連結">
+
+    <a href="/Project/links/" rel="section"><i class="fa fa-link  <-----> 新增頁面 fa-fw"></i>連結</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜尋
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜尋..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://3618321s.github.io/Project/2023/02/20230205/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/Project/images/avatar.gif">
+      <meta itemprop="name" content="想抓住記憶的金魚">
+      <meta itemprop="description" content="備忘錄">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="點點滴滴">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          GridView 額外使用方式
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2023-02-09 14:02:13" itemprop="dateCreated datePublished" datetime="2023-02-09T14:02:13+08:00">2023-02-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-03-27 22:01:46" itemprop="dateModified" datetime="2024-03-27T22:01:46+08:00">2024-03-27</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分類於</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/Project/categories/ASP-NET/" itemprop="url" rel="index"><span itemprop="name">ASP.NET</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>上一篇 GridView 如何新增、編輯、刪除、換頁</p>
+<p>這篇紀錄一些額外使用方式</p>
+<span id="more"></span>
+
+<h3 id="開窗顯示圖片"><a href="#開窗顯示圖片" class="headerlink" title="開窗顯示圖片"></a>開窗顯示圖片</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;asp:TemplateField HeaderText=&quot;圖片名稱&quot;&gt;</span><br><span class="line">    &lt;ItemTemplate&gt;</span><br><span class="line">        &lt;a href=&quot;&lt;%# &quot;/img/&quot; + Eval(&quot;圖片名稱&quot;) %&gt;&quot; target=&quot;_blank&quot;&gt;點擊查看&lt;/a&gt;</span><br><span class="line">    &lt;/ItemTemplate&gt;</span><br><span class="line">&lt;/asp:TemplateField&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="按鈕開窗"><a href="#按鈕開窗" class="headerlink" title="按鈕開窗"></a>按鈕開窗</h3><h4 id="使用TemplateField-Button"><a href="#使用TemplateField-Button" class="headerlink" title="使用TemplateField Button"></a>使用TemplateField Button</h4><h5 id="aspx"><a href="#aspx" class="headerlink" title="aspx"></a>aspx</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;asp:TemplateField HeaderText=&quot;欄位標題&quot; SortExpression=&quot;資料欄位名稱&quot;&gt;</span><br><span class="line">    &lt;ItemTemplate&gt;</span><br><span class="line">        &lt;asp:Button ID=&quot;Button1&quot; runat=&quot;server&quot; CausesValidation=&quot;false&quot; CommandName=&quot;Select&quot; Text=&#x27;&lt;%# Bind(&quot;資料欄位名稱&quot;) %&gt;&#x27; OnClick=&quot;Button1_Click&quot; class=&quot;btn btn-link&quot; /&gt;</span><br><span class="line">    &lt;/ItemTemplate&gt;</span><br><span class="line">&lt;/asp:TemplateField&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="C"><a href="#C" class="headerlink" title="C#"></a>C#</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">protected void Button1_Click(object sender, EventArgs e)</span><br><span class="line">    &#123;</span><br><span class="line">        string s_url;</span><br><span class="line">        int row = ((GridViewRow)((Button)sender).NamingContainer).RowIndex;</span><br><span class="line">        Button btn = (Button)GridView1.Rows[row].FindControl(&quot;Button1&quot;);</span><br><span class="line">        s_url = &quot;./Step1.aspx?MA001=&quot; + GridView1.Rows[row].Cells[0].Text;</span><br><span class="line">        Response.Redirect(s_url);        </span><br><span class="line">        Response.AddHeader(&quot;Refresh&quot;, &quot;0&quot;); //刷新頁面</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="使用-HyperLinkField"><a href="#使用-HyperLinkField" class="headerlink" title="使用 HyperLinkField"></a>使用 HyperLinkField</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;asp:HyperLinkField HeaderText=&quot;查看圖片&quot; DataNavigateUrlFields=&quot;編號&quot; DataNavigateUrlFormatString=&quot;img_Details.aspx?MF002=&#123;0&#125;&quot; Target=&quot;_blank&quot; Text=&quot;查看&quot; /&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="使用-ButtonField"><a href="#使用-ButtonField" class="headerlink" title="使用 ButtonField"></a>使用 ButtonField</h4><h5 id="aspx-需加入事件"><a href="#aspx-需加入事件" class="headerlink" title="aspx 需加入事件"></a>aspx 需加入事件</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;asp:ButtonField CommandName=&quot;Select&quot; HeaderText=&quot;查看&quot; Text=&quot;Select&quot;/&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="https://github.com/3618321s/blog/raw/gh-pages/images/Project/GridView%E6%8C%89%E9%88%95%E4%BA%8B%E4%BB%B6.jpg" alt="Image"></p>
+<h5 id="C-1"><a href="#C-1" class="headerlink" title="C#"></a>C#</h5><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">protected void gv_RowCommand(object sender, GridViewCommandEventArgs e)</span><br><span class="line">    &#123;</span><br><span class="line">        string s_url, MC002, Edit;</span><br><span class="line">        MC002 = Request.QueryString[&quot;MC002&quot;];</span><br><span class="line">        Edit = Request.QueryString[&quot;Edit&quot;];</span><br><span class="line">        int rowIndex = int.Parse(e.CommandArgument.ToString());//RowIndex</span><br><span class="line">        if (e.CommandName == &quot;Select&quot;)</span><br><span class="line">        &#123;</span><br><span class="line">            s_url = &quot;./Step1.aspx?MA001=&quot; + GridView1.Rows[row].Cells[0].Text;</span><br><span class="line">            Response.Redirect(s_url);        </span><br><span class="line">            Response.AddHeader(&quot;Refresh&quot;, &quot;0&quot;); //刷新頁面</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="合併欄位資料"><a href="#合併欄位資料" class="headerlink" title="合併欄位資料"></a>合併欄位資料</h3><h4 id="aspx-需加入事件-1"><a href="#aspx-需加入事件-1" class="headerlink" title="aspx 需加入事件"></a>aspx 需加入事件</h4><p><img src="https://github.com/3618321s/blog/raw/gh-pages/images/Project/GridView%E5%90%88%E4%BD%B5%E6%AC%84%E4%BD%8D%E4%BA%8B%E4%BB%B6.jpg" alt="Image"></p>
+<h4 id="C-2"><a href="#C-2" class="headerlink" title="C#"></a>C#</h4><p>列出合併的欄位(須連續)，以下案例為合併前面兩欄</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">protected void gv_PreRender(object sender, EventArgs e)</span><br><span class="line">    &#123;</span><br><span class="line">        int a = 1;</span><br><span class="line">        foreach (GridViewRow wkitem in GridView1.Rows)</span><br><span class="line">        &#123;</span><br><span class="line">            if (wkitem.RowIndex == 0)</span><br><span class="line">            &#123;</span><br><span class="line">                wkitem.Cells[1].RowSpan = 1;</span><br><span class="line">                wkitem.Cells[0].RowSpan = 1;</span><br><span class="line">            &#125;</span><br><span class="line">            else if (wkitem.Cells[0].Text.Trim() == GridView1.Rows[wkitem.RowIndex - a].Cells[0].Text.Trim())</span><br><span class="line">            &#123;                </span><br><span class="line">                GridView1.Rows[wkitem.RowIndex - a].Cells[1].RowSpan += 1;</span><br><span class="line">                GridView1.Rows[wkitem.RowIndex - a].Cells[0].RowSpan += 1;</span><br><span class="line">                a = a + 1;                </span><br><span class="line">                wkitem.Cells[1].Visible = false;</span><br><span class="line">                wkitem.Cells[0].Visible = false;</span><br><span class="line">            &#125;</span><br><span class="line">            else</span><br><span class="line">            &#123;</span><br><span class="line">                GridView1.Rows[wkitem.RowIndex].Cells[1].RowSpan = 1;</span><br><span class="line">                GridView1.Rows[wkitem.RowIndex].Cells[0].RowSpan = 1;</span><br><span class="line">                a = 1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;   </span><br></pre></td></tr></table></figure>
+<h4 id="圖片樣式"><a href="#圖片樣式" class="headerlink" title="圖片樣式"></a>圖片樣式</h4><p><img src="https://github.com/3618321s/blog/raw/gh-pages/images/Project/GridView%E5%90%88%E4%BD%B5%E4%BA%8B%E4%BB%B6.jpg" alt="Image"></p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/Project/tags/GridView/" rel="tag"># GridView</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/Project/2023/02/20230209/" rel="prev" title="GridView 新增、編輯、刪除、換頁">
+      <i class="fa fa-chevron-left"></i> GridView 新增、編輯、刪除、換頁
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/Project/2023/02/20230206/" rel="next" title="ASP.NET 紀錄特殊用法">
+      ASP.NET 紀錄特殊用法 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%96%8B%E7%AA%97%E9%A1%AF%E7%A4%BA%E5%9C%96%E7%89%87"><span class="nav-number">1.</span> <span class="nav-text">開窗顯示圖片</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8C%89%E9%88%95%E9%96%8B%E7%AA%97"><span class="nav-number">2.</span> <span class="nav-text">按鈕開窗</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8TemplateField-Button"><span class="nav-number">2.1.</span> <span class="nav-text">使用TemplateField Button</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#aspx"><span class="nav-number">2.1.1.</span> <span class="nav-text">aspx</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#C"><span class="nav-number">2.1.2.</span> <span class="nav-text">C#</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-HyperLinkField"><span class="nav-number">2.2.</span> <span class="nav-text">使用 HyperLinkField</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-ButtonField"><span class="nav-number">2.3.</span> <span class="nav-text">使用 ButtonField</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#aspx-%E9%9C%80%E5%8A%A0%E5%85%A5%E4%BA%8B%E4%BB%B6"><span class="nav-number">2.3.1.</span> <span class="nav-text">aspx 需加入事件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#C-1"><span class="nav-number">2.3.2.</span> <span class="nav-text">C#</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%90%88%E4%BD%B5%E6%AC%84%E4%BD%8D%E8%B3%87%E6%96%99"><span class="nav-number">3.</span> <span class="nav-text">合併欄位資料</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#aspx-%E9%9C%80%E5%8A%A0%E5%85%A5%E4%BA%8B%E4%BB%B6-1"><span class="nav-number">3.1.</span> <span class="nav-text">aspx 需加入事件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#C-2"><span class="nav-number">3.2.</span> <span class="nav-text">C#</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%9C%96%E7%89%87%E6%A8%A3%E5%BC%8F"><span class="nav-number">3.3.</span> <span class="nav-text">圖片樣式</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">想抓住記憶的金魚</p>
+  <div class="site-description" itemprop="description">備忘錄</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/Project/archives/">
+        
+          <span class="site-state-item-count">15</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/Project/categories/">
+          
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">分類</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/Project/tags/">
+          
+        <span class="site-state-item-count">11</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">3618321s</span>
+</div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/Project/lib/anime.min.js"></script>
+  <script src="/Project/lib/velocity/velocity.min.js"></script>
+  <script src="/Project/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/Project/js/utils.js"></script>
+
+<script src="/Project/js/motion.js"></script>
+
+
+<script src="/Project/js/schemes/muse.js"></script>
+
+
+<script src="/Project/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/Project/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
